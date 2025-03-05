@@ -1,31 +1,25 @@
 {
-    "version": 2,
     "functions": {
         "api/index.php": {
             "runtime": "vercel-php@0.7.3"
         }
     },
+    "version": 2,
     "routes": [
         {
-            "src": "/build/(.*)",
-            "dest": "/public/build/$1"
-        },
-        {
-            "src": "/img/(.*)",
-            "dest": "/public/img/$1"
-        },
-        {
             "src": "/(.*)",
-            "dest": "/api/index.php"
+            "dest": "api/index.php"
+        },
+        {
+            "src": "/(css|js)/(.*)$",
+            "dest": "/api/assets.php?type=$1&file=$2"
         }
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_KEY": "base64:OWF+8wcBYD/oAa84Q08IeZFtOwdXoTVu9D+W0BEppXA=",
-
-        "APP_DEBUG": "false",
-        "APP_URL": "https://gpr-id.vercel.app/",
-        "ASSET_URL": "https://gpr-id.vercel.app/",
+        "APP_DEBUG": "true",
+        "APP_URL": "https://gpr-id.vercel.app",
+        "ASSET_URL": "https://gpr-id.vercel.app",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
@@ -38,14 +32,13 @@
         "SESSION_DRIVER": "cookie",
 
         "DB_CONNECTION": "pgsql",
-        "DB_HOST": "ep-blue-bird-a7twfxgj-pooler.ap-southeast-2.aws.neon.tech",
+        "DB_HOST": "ep-blue-bird-a7twfxgj.ap-southeast-2.aws.neon.tech",
         "DB_PORT": "5432",
         "DB_DATABASE": "neondb",
         "DB_USERNAME": "neondb_owner",
         "DB_PASSWORD": "npg_VugLwM5vmY6i",
         "DB_SSLMODE": "require",
-        "DATABASE_URL": "postgres://neondb_owner:npg_VugLwM5vmY6i@ep-blue-bird-a7twfxgj-pooler.ap-southeast-2.aws.neon.tech/neondb?sslmode=require"
+        "DATABASE_URL": "postgresql://neondb_owner:npg_VugLwM5vmY6i@ep-blue-bird-a7twfxgj.ap-southeast-2.aws.neon.tech/neondb?sslmode=require"
     },
-
     "outputDirectory": "public"
 }

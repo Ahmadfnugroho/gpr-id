@@ -1,7 +1,6 @@
 node_modules/
 vendor/
 storage/
-tests/
-*.zip
-*.tar.gz
-*.log
+bootstrap/cache/
+.env
+.git/
